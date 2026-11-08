@@ -1,0 +1,19 @@
+{
+  "name": "まるいちにち — 24時間長方形日記",
+  "short_name": "まるいちにち",
+  "description": "オフラインで使える24時間縦型タイムライン日記",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f0f3f8",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%230f172a'/%3E%3Crect x='176' y='76' width='160' height='105' rx='12' fill='%238294e8'/%3E%3Crect x='176' y='185' width='160' height='45' fill='%23f5c942'/%3E%3Crect x='176' y='234' width='160' height='110' fill='%234fa3ea'/%3E%3Crect x='176' y='348' width='160' height='88' rx='12' fill='%23f07481'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
