@@ -542,6 +542,213 @@
   .lightbox-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.82); display: none; align-items: center; justify-content: center; z-index: 3000; padding: 20px; cursor: zoom-out; }
   .lightbox-backdrop.open { display: flex; }
   .lightbox-backdrop img { max-width: 92vw; max-height: 88vh; border-radius: 12px; object-fit: contain; }
+
+  /* スマート統合（マージ）用スタイル */
+  .btn-merge {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary-blue);
+    border-color: rgba(59, 130, 246, 0.4);
+    font-weight: 750;
+  }
+  .btn-merge:hover {
+    background: var(--primary-blue);
+    color: #ffffff;
+    border-color: var(--primary-blue);
+  }
+  .merge-modal-box {
+    background: var(--panel-bg);
+    border-radius: 18px;
+    width: 100%;
+    max-width: 640px;
+    max-height: 88vh;
+    padding: 20px;
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.24);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .merge-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .merge-stat-card {
+    background: var(--item-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+  .merge-stat-num {
+    font-size: 18px;
+    font-weight: 850;
+    line-height: 1.2;
+  }
+  .merge-stat-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--text-sub);
+    margin-top: 2px;
+  }
+  .merge-details-scroll {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 4px;
+    max-height: 46vh;
+  }
+  .merge-section-box {
+    background: var(--item-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+  .merge-section-title {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .merge-date-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .merge-date-chip {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+  }
+  .merge-conflict-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .merge-conflict-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-size: 11px;
+  }
+  @media (max-width: 520px) {
+    .merge-conflict-compare { grid-template-columns: 1fr; }
+  }
+  .merge-side-box {
+    background: var(--item-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 7px 9px;
+  }
+  .merge-side-title {
+    font-weight: 800;
+    font-size: 10.5px;
+    color: var(--text-sub);
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .merge-choice-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .merge-choice-label {
+    flex: 1;
+    min-width: 120px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #fff;
+  }
+  .merge-choice-label:has(input:checked) {
+    border-color: var(--primary-blue);
+    background: rgba(59, 130, 246, 0.08);
+    color: var(--primary-blue);
+  }
+
+  /* 大容量データベース（IndexedDB）ステータス＆容量メーター */
+  .storage-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 7px 12px;
+    font-size: 11px;
+    color: var(--text-sub);
+    flex-wrap: wrap;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .storage-status-bar:hover {
+    border-color: var(--primary-blue);
+  }
+  .storage-status-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    color: var(--text-main);
+    flex-wrap: wrap;
+  }
+  .storage-db-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+  .storage-db-badge.fallback {
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  .storage-stats-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+  .storage-meter-track {
+    width: 54px;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .storage-meter-fill {
+    height: 100%;
+    background: #10b981;
+    border-radius: 999px;
+    transition: width 0.25s;
+  }
 </style>
 </head>
 <body>
@@ -671,9 +878,21 @@
         </div>
       </div>
       <div class="action-row">
-        <button class="btn btn-sm" id="btnExportJson">JSONで保存</button>
-        <button class="btn btn-sm" id="btnImportJson">JSON読込</button>
+        <button class="btn btn-sm" id="btnExportJson">📤 JSONで保存</button>
+        <button class="btn btn-sm btn-merge" id="btnSmartMergeJson" title="現在のデータを消さずに、別端末のJSONから新しい日付や更新分だけを賢く合体します">🔄 スマート統合（マージ）</button>
+        <button class="btn btn-sm" id="btnImportJson" title="JSONファイルの内容で丸ごと上書き復元します">📥 上書き読込</button>
+        <input type="file" id="fileMergeInput" accept=".json" style="display:none">
         <input type="file" id="fileImportInput" accept=".json" style="display:none">
+      </div>
+      <div class="storage-status-bar" id="storageStatusBar" title="タップでストレージ詳細を表示（ブラウザ内の大容量IndexedDBに自動保存されています）">
+        <div class="storage-status-left">
+          <span class="storage-db-badge" id="storageDbBadge">💾 大容量DB稼働中</span>
+          <span id="storageCountText">記録 0日 ・ 写真 0枚</span>
+        </div>
+        <div class="storage-stats-right">
+          <span id="storageSizeText">0.00 MB</span>
+          <div class="storage-meter-track"><div class="storage-meter-fill" id="storageMeterFill" style="width:2%;"></div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -896,6 +1115,25 @@
     <div class="modal-actions">
       <button id="btnModalCancel" class="btn btn-sm">キャンセル</button>
       <button id="btnModalOk" class="btn btn-sm btn-danger">実行する</button>
+    </div>
+  </div>
+</div>
+
+<!-- スマート統合（マージ）プレビュー＆確認モーダル -->
+<div id="mergeModal" class="modal-backdrop" role="dialog" aria-modal="true">
+  <div class="merge-modal-box">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="modal-title" style="margin:0; font-size:16px;">🔄 スマート統合（マージ）の確認</div>
+      <button type="button" class="btn-remove" id="btnCloseMergeModal">×</button>
+    </div>
+    <div style="font-size:12px; color:var(--text-sub); line-height:1.45;">
+      この端末のデータは消さずに保持したまま、読み込んだJSONファイルの新しい日付や更新分だけを合体します。
+    </div>
+    <div id="mergeSummaryGrid" class="merge-summary-grid"></div>
+    <div id="mergeDetailsScroll" class="merge-details-scroll"></div>
+    <div class="modal-actions" style="margin-top:4px;">
+      <button type="button" class="btn btn-sm" id="btnCancelMergeModal">キャンセル</button>
+      <button type="button" class="btn btn-sm btn-primary" id="btnExecuteMerge">🔄 この内容で統合する</button>
     </div>
   </div>
 </div>
@@ -1208,12 +1446,184 @@
     dl.innerHTML = Array.from(titles).slice(0, 50).map(t => `<option value="${escapeHtml(t)}"></option>`).join('');
   }
 
+  // 各日の内容シグネチャを記録し、変更があった日のみ updatedAt を自動更新する仕組み
+  const lastEntrySignatures = new Map();
+
+  // --- 大容量データベース（IndexedDB）エンジン ---
+  const IDB_NAME = 'maru_ichinichi_idb_v1';
+  const IDB_VERSION = 1;
+  const IDB_STORE = 'diary_state_store';
+  const IDB_KEY = 'root_state';
+  let idbInstance = null;
+  let isIdbActive = false;
+  let lastEstimatedBytes = 0;
+  let quotaEstimateInfo = null;
+
+  function openDiaryIDB() {
+    if (idbInstance) return Promise.resolve(idbInstance);
+    return new Promise((resolve, reject) => {
+      if (!('indexedDB' in window)) return reject(new Error('IndexedDB unsupported'));
+      const req = indexedDB.open(IDB_NAME, IDB_VERSION);
+      req.onupgradeneeded = e => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(IDB_STORE)) {
+          db.createObjectStore(IDB_STORE);
+        }
+      };
+      req.onsuccess = e => {
+        idbInstance = e.target.result;
+        isIdbActive = true;
+        resolve(idbInstance);
+      };
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function idbGetState() {
+    const db = await openDiaryIDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(IDB_STORE, 'readonly');
+      const store = tx.objectStore(IDB_STORE);
+      const req = store.get(IDB_KEY);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function idbSetState(stateObj) {
+    const db = await openDiaryIDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(IDB_STORE, 'readwrite');
+      const store = tx.objectStore(IDB_STORE);
+      const req = store.put(stateObj, IDB_KEY);
+      req.onsuccess = () => resolve(true);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  // ストレージ使用量・記録日数・写真枚数の集計とUI更新
+  let meterUpdateTimer = null;
+  function scheduleStorageMeterUpdate(serializedLength = null) {
+    clearTimeout(meterUpdateTimer);
+    meterUpdateTimer = setTimeout(async () => {
+      try {
+        let recordedDays = 0;
+        let photoCount = 0;
+        Object.values(state.entries || {}).forEach(ent => {
+          if (hasMeaningfulRecord(ent)) recordedDays++;
+          if (Array.isArray(ent.photos)) photoCount += ent.photos.length;
+          (ent.items || []).forEach(it => { if (it && it.image) photoCount++; });
+        });
+
+        const rawStr = serializedLength !== null ? null : JSON.stringify(state);
+        const bytes = serializedLength !== null ? serializedLength : (rawStr ? new Blob([rawStr]).size : 0);
+        lastEstimatedBytes = bytes;
+        const mb = bytes / (1024 * 1024);
+
+        if (navigator.storage && navigator.storage.estimate) {
+          try { quotaEstimateInfo = await navigator.storage.estimate(); } catch {}
+        }
+
+        const badgeEl = document.getElementById('storageDbBadge');
+        const countEl = document.getElementById('storageCountText');
+        const sizeEl = document.getElementById('storageSizeText');
+        const fillEl = document.getElementById('storageMeterFill');
+
+        if (badgeEl) {
+          badgeEl.textContent = isIdbActive ? '💾 大容量DB (IndexedDB)' : '💾 標準保存';
+          badgeEl.classList.toggle('fallback', !isIdbActive);
+        }
+        if (countEl) countEl.textContent = `記録 ${recordedDays}日 ・ 写真 ${photoCount}枚`;
+        if (sizeEl) sizeEl.textContent = `${mb < 0.01 && bytes > 0 ? '0.01' : mb.toFixed(2)} MB`;
+        if (fillEl) {
+          // 大容量DB稼働時は500MBを100%目安、フォールバック時は5MBを目安に表示
+          const capMb = isIdbActive ? 500 : 5;
+          const pct = Math.min(100, Math.max(3, (mb / capMb) * 100));
+          fillEl.style.width = `${pct.toFixed(1)}%`;
+        }
+      } catch (e) { console.error(e); }
+    }, 120);
+  }
+
+  function getEntryContentSignature(entry) {
+    if (!entry) return '';
+    const cleanItems = (entry.items || []).map(it => ({
+      title: (it.title || '').trim(),
+      start: it.start || '00:00',
+      end: it.end || '00:00',
+      color: (it.color || '').toLowerCase(),
+      note: (it.note || '').trim(),
+      image: it.image || ''
+    }));
+    return JSON.stringify({
+      title: (entry.title || '').trim(),
+      subtitle: (entry.subtitle || '').trim(),
+      weather: entry.weather || '',
+      tempHigh: String(entry.tempHigh ?? ''),
+      tempLow: String(entry.tempLow ?? ''),
+      mood: entry.mood || '',
+      memo: (entry.memo || '').trim(),
+      photos: entry.photos || [],
+      items: cleanItems
+    });
+  }
+
+  function syncAllEntrySignatures() {
+    lastEntrySignatures.clear();
+    Object.entries(state.entries || {}).forEach(([dStr, ent]) => {
+      lastEntrySignatures.set(dStr, getEntryContentSignature(ent));
+    });
+  }
+
   function saveState() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { console.error(e); }
+    try {
+      const now = Date.now();
+      Object.entries(state.entries || {}).forEach(([dStr, ent]) => {
+        const sig = getEntryContentSignature(ent);
+        if (lastEntrySignatures.has(dStr)) {
+          if (lastEntrySignatures.get(dStr) !== sig) {
+            ent.updatedAt = now;
+            lastEntrySignatures.set(dStr, sig);
+          }
+        } else {
+          if (hasMeaningfulRecord(ent) && !ent.updatedAt) ent.updatedAt = now;
+          lastEntrySignatures.set(dStr, sig);
+        }
+      });
+
+      const jsonStr = JSON.stringify(state);
+      const cloneForIdb = JSON.parse(jsonStr);
+
+      // 1. メイン保存先：大容量 IndexedDB に全データ（高画質写真含む）を非同期保存
+      idbSetState(cloneForIdb)
+        .then(() => {
+          isIdbActive = true;
+          scheduleStorageMeterUpdate(jsonStr.length);
+        })
+        .catch(err => {
+          console.warn('IndexedDB保存スキップ:', err);
+          scheduleStorageMeterUpdate(jsonStr.length);
+        });
+
+      // 2. サブ保存先：localStorage（5MB上限を超えた場合は画像のみ除外した軽量テキストを退避）
+      try {
+        localStorage.setItem(STORAGE_KEY, jsonStr);
+      } catch (quotaErr) {
+        try {
+          const liteState = JSON.parse(jsonStr);
+          liteState._isLiteBackup = true;
+          Object.values(liteState.entries || {}).forEach(ent => {
+            ent.photos = [];
+            (ent.items || []).forEach(it => { it.image = ''; });
+          });
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(liteState));
+        } catch {}
+      }
+    } catch (e) { console.error(e); }
   }
 
   function createEmptyEntry(dateStr) {
-    return { date: dateStr, title: 'わたしの一日', subtitle: '', weather: '', tempHigh: '', tempLow: '', temp: '', mood: '', memo: '', photos: [], items: [] };
+    return { date: dateStr, title: 'わたしの一日', subtitle: '', weather: '', tempHigh: '', tempLow: '', temp: '', mood: '', memo: '', photos: [], items: [], updatedAt: 0 };
   }
 
   function hasMeaningfulRecord(entry) {
@@ -1221,9 +1631,328 @@
     return Boolean(
       (entry.items && entry.items.length > 0) ||
       (entry.memo && entry.memo.trim()) ||
+      (entry.subtitle && entry.subtitle.trim()) ||
+      (entry.title && entry.title.trim() && entry.title.trim() !== 'わたしの一日') ||
       entry.weather || entry.mood || entry.tempHigh || entry.tempLow ||
       (entry.photos && entry.photos.length > 0)
     );
+  }
+
+  // エントリの情報量スコアを算出（updatedAtがないデータ同士の比較用）
+  function calcEntryRichness(entry) {
+    if (!hasMeaningfulRecord(entry)) return 0;
+    let score = 0;
+    score += (entry.items ? entry.items.length : 0) * 10;
+    (entry.items || []).forEach(it => {
+      if (it.note && it.note.trim()) score += 5 + Math.min(20, it.note.trim().length);
+      if (it.image) score += 15;
+    });
+    if (entry.memo && entry.memo.trim()) score += 10 + Math.min(50, entry.memo.trim().length);
+    if (entry.weather) score += 4;
+    if (entry.tempHigh || entry.tempLow) score += 4;
+    if (entry.mood) score += 4;
+    if (entry.subtitle && entry.subtitle.trim()) score += 4;
+    if (entry.title && entry.title.trim() && entry.title.trim() !== 'わたしの一日') score += 5;
+    score += (entry.photos ? entry.photos.length : 0) * 15;
+    return score;
+  }
+
+  // 同じ日に両方データがある場合の「両方合体（combine）」ロジック
+  function combineTwoEntries(localEntry, incEntry, dateStr) {
+    const base = JSON.parse(JSON.stringify(localEntry));
+    base.date = dateStr;
+
+    if ((!base.title || base.title === 'わたしの一日') && incEntry.title && incEntry.title !== 'わたしの一日') {
+      base.title = incEntry.title;
+    }
+    if (!base.subtitle && incEntry.subtitle) base.subtitle = incEntry.subtitle;
+    if (!base.weather && incEntry.weather) base.weather = incEntry.weather;
+    if (!base.tempHigh && incEntry.tempHigh) base.tempHigh = incEntry.tempHigh;
+    if (!base.tempLow && incEntry.tempLow) base.tempLow = incEntry.tempLow;
+    if (!base.mood && incEntry.mood) base.mood = incEntry.mood;
+
+    // 日記メモの合体
+    const locMemo = (base.memo || '').trim();
+    const incMemo = (incEntry.memo || '').trim();
+    if (!locMemo && incMemo) {
+      base.memo = incMemo;
+    } else if (locMemo && incMemo && locMemo !== incMemo && !locMemo.includes(incMemo)) {
+      base.memo = incMemo.includes(locMemo) ? incMemo : `${locMemo}\n\n${incMemo}`;
+    }
+
+    // 思い出写真の合体（重複除外・最大4枚）
+    const mergedPhotos = [...(base.photos || [])];
+    (incEntry.photos || []).forEach(p => {
+      if (p && !mergedPhotos.includes(p) && mergedPhotos.length < 4) mergedPhotos.push(p);
+    });
+    base.photos = mergedPhotos;
+
+    // タイムライン予定の合体（同一開始・終了・タイトルの予定は詳細メモや写真を補完し、新規時間帯は追加）
+    const mergedItems = [...(base.items || [])];
+    (incEntry.items || []).forEach(incIt => {
+      const sameSlot = mergedItems.find(locIt =>
+        locIt.start === incIt.start &&
+        locIt.end === incIt.end &&
+        (locIt.title || '').trim() === (incIt.title || '').trim()
+      );
+      if (sameSlot) {
+        if (!sameSlot.note && incIt.note) sameSlot.note = incIt.note;
+        if (!sameSlot.image && incIt.image) sameSlot.image = incIt.image;
+      } else {
+        mergedItems.push({ ...JSON.parse(JSON.stringify(incIt)), id: uid() });
+      }
+    });
+    mergedItems.sort((a, b) => timeToMin(a.start) - timeToMin(b.start));
+    base.items = mergedItems;
+    base.updatedAt = Math.max(localEntry.updatedAt || 0, incEntry.updatedAt || 0, Date.now());
+    return base;
+  }
+
+  function formatUpdatedTimeShort(ts) {
+    if (!ts || typeof ts !== 'number') return '更新時刻なし';
+    const d = new Date(ts);
+    if (isNaN(d.getTime())) return '更新時刻なし';
+    return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}更新`;
+  }
+
+  let pendingMergePlan = null;
+
+  function analyzeAndOpenMergeModal(incomingData) {
+    const incEntries = incomingData.entries || {};
+    const allDates = Array.from(new Set([
+      ...Object.keys(state.entries || {}),
+      ...Object.keys(incEntries)
+    ])).sort();
+
+    const toAdd = [];      // この端末になく、ファイルにある日
+    const conflicts = [];  // 両方にあり、内容が異なる日
+    const keptLocal = [];  // この端末のみにある日、または同一内容の日
+
+    allDates.forEach(dateStr => {
+      const loc = state.entries[dateStr];
+      const inc = incEntries[dateStr];
+      const hasLoc = hasMeaningfulRecord(loc);
+      const hasInc = hasMeaningfulRecord(inc);
+
+      if (!hasLoc && !hasInc) return;
+
+      if (!hasLoc && hasInc) {
+        toAdd.push({ dateStr, inc });
+      } else if (hasLoc && !hasInc) {
+        keptLocal.push({ dateStr, reason: 'local_only' });
+      } else {
+        const locSig = getEntryContentSignature(loc);
+        const incSig = getEntryContentSignature(inc);
+        if (locSig === incSig) {
+          keptLocal.push({ dateStr, reason: 'identical' });
+        } else {
+          // どちらが新しいか・情報量が多いかで初期選択を決定
+          let defaultChoice = 'incoming';
+          const locTs = loc.updatedAt || 0;
+          const incTs = inc.updatedAt || 0;
+          if (locTs > 0 && incTs > 0 && locTs !== incTs) {
+            defaultChoice = incTs > locTs ? 'incoming' : 'local';
+          } else {
+            const locScore = calcEntryRichness(loc);
+            const incScore = calcEntryRichness(inc);
+            if (incScore > locScore) defaultChoice = 'incoming';
+            else if (locScore > incScore) defaultChoice = 'local';
+            else defaultChoice = 'combine';
+          }
+          conflicts.push({ dateStr, loc, inc, defaultChoice });
+        }
+      }
+    });
+
+    // プリセット・テンプレート・色記憶の新規追加分を検出
+    const localPresetTitles = new Set(getActivePresets().map(p => p.title));
+    const newPresets = Array.isArray(incomingData.presets)
+      ? incomingData.presets.filter(p => p && p.title && !localPresetTitles.has(p.title))
+      : [];
+
+    const localTplNames = new Set((state.templates || []).map(t => t.name));
+    const newTemplates = Array.isArray(incomingData.templates)
+      ? incomingData.templates.filter(t => t && t.name && !localTplNames.has(t.name))
+      : [];
+
+    pendingMergePlan = {
+      incomingData,
+      toAdd,
+      conflicts,
+      keptLocal,
+      newPresets,
+      newTemplates
+    };
+
+    // サマリー描画
+    const summaryGrid = document.getElementById('mergeSummaryGrid');
+    summaryGrid.innerHTML = `
+      <div class="merge-stat-card">
+        <div class="merge-stat-num" style="color:#10b981;">＋${toAdd.length}日</div>
+        <div class="merge-stat-label">新しく追加される日</div>
+      </div>
+      <div class="merge-stat-card">
+        <div class="merge-stat-num" style="color:var(--primary-blue);">${conflicts.length}日</div>
+        <div class="merge-stat-label">更新・合体の対象日</div>
+      </div>
+      <div class="merge-stat-card">
+        <div class="merge-stat-num" style="color:var(--text-main);">${keptLocal.length}日</div>
+        <div class="merge-stat-label">そのまま維持される日</div>
+      </div>
+    `;
+
+    // 詳細エリア描画
+    const detailsEl = document.getElementById('mergeDetailsScroll');
+    detailsEl.innerHTML = '';
+
+    if (toAdd.length === 0 && conflicts.length === 0 && newPresets.length === 0 && newTemplates.length === 0) {
+      detailsEl.innerHTML = `
+        <div class="merge-section-box" style="text-align:center; padding:20px; color:var(--text-sub); font-size:12.5px;">
+          ✨ すべての記録がすでに最新状態で一致しています（新しく追加・更新されるデータはありません）。
+        </div>
+      `;
+    } else {
+      if (toAdd.length > 0) {
+        const addBox = document.createElement('div');
+        addBox.className = 'merge-section-box';
+        const chipsHtml = toAdd.map(item =>
+          `<span class="merge-date-chip">📅 ${formatDateJa(item.dateStr)}（${escapeHtml(item.inc.title || 'わたしの一日')}）</span>`
+        ).join('');
+        addBox.innerHTML = `
+          <div class="merge-section-title">
+            <span style="color:#059669;">🟢 新しく追加される日（${toAdd.length}日分）</span>
+          </div>
+          <div class="merge-date-chips">${chipsHtml}</div>
+        `;
+        detailsEl.appendChild(addBox);
+      }
+
+      if (conflicts.length > 0) {
+        const confBox = document.createElement('div');
+        confBox.className = 'merge-section-box';
+        confBox.innerHTML = `
+          <div class="merge-section-title">
+            <span style="color:var(--primary-blue);">🔵 両方に記録があり内容が異なる日（${conflicts.length}日分）</span>
+            <span style="font-size:10.5px; color:var(--text-sub); font-weight:600;">※日ごとに統合方法を選べます</span>
+          </div>
+          <div class="js-conflict-list" style="display:flex; flex-direction:column; gap:8px;"></div>
+        `;
+        const listWrap = confBox.querySelector('.js-conflict-list');
+
+        conflicts.forEach((c, idx) => {
+          const card = document.createElement('div');
+          card.className = 'merge-conflict-card';
+          const locItemsCnt = (c.loc.items || []).length;
+          const incItemsCnt = (c.inc.items || []).length;
+          const locMemoShort = (c.loc.memo || '').trim().slice(0, 36) || '（メモなし）';
+          const incMemoShort = (c.inc.memo || '').trim().slice(0, 36) || '（メモなし）';
+
+          card.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:12.5px; font-weight:800;">📅 ${formatDateJa(c.dateStr)}</span>
+              <span style="font-size:10.5px; color:var(--primary-blue); font-weight:700;">
+                ${c.defaultChoice === 'incoming' ? '推奨：ファイル側が新しい/充実' : (c.defaultChoice === 'local' ? '推奨：この端末側が新しい/充実' : '推奨：両方を合体')}
+              </span>
+            </div>
+            <div class="merge-conflict-compare">
+              <div class="merge-side-box">
+                <div class="merge-side-title"><span>📱 この端末</span><span>${formatUpdatedTimeShort(c.loc.updatedAt)}</span></div>
+                <div style="font-weight:700;">${escapeHtml(c.loc.title || 'わたしの一日')}（予定${locItemsCnt}件）</div>
+                <div style="color:var(--text-sub); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(locMemoShort)}</div>
+              </div>
+              <div class="merge-side-box">
+                <div class="merge-side-title"><span>📂 読込ファイル</span><span>${formatUpdatedTimeShort(c.inc.updatedAt)}</span></div>
+                <div style="font-weight:700;">${escapeHtml(c.inc.title || 'わたしの一日')}（予定${incItemsCnt}件）</div>
+                <div style="color:var(--text-sub); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(incMemoShort)}</div>
+              </div>
+            </div>
+            <div class="merge-choice-row">
+              <label class="merge-choice-label">
+                <input type="radio" name="merge_choice_${idx}" value="incoming" ${c.defaultChoice === 'incoming' ? 'checked' : ''}>
+                <span>📂 ファイル側で更新</span>
+              </label>
+              <label class="merge-choice-label">
+                <input type="radio" name="merge_choice_${idx}" value="combine" ${c.defaultChoice === 'combine' ? 'checked' : ''}>
+                <span>🤝 両方を合体</span>
+              </label>
+              <label class="merge-choice-label">
+                <input type="radio" name="merge_choice_${idx}" value="local" ${c.defaultChoice === 'local' ? 'checked' : ''}>
+                <span>📱 この端末を維持</span>
+              </label>
+            </div>
+          `;
+          listWrap.appendChild(card);
+        });
+
+        detailsEl.appendChild(confBox);
+      }
+
+      if (newPresets.length > 0 || newTemplates.length > 0) {
+        const extraBox = document.createElement('div');
+        extraBox.className = 'merge-section-box';
+        extraBox.innerHTML = `
+          <div class="merge-section-title"><span>🎨 プリセット・テンプレートの追加</span></div>
+          <div style="font-size:11.5px; color:var(--text-main);">
+            ${newPresets.length > 0 ? `・新しい予定プリセット <strong>${newPresets.length}件</strong> を追加します<br>` : ''}
+            ${newTemplates.length > 0 ? `・新しいテンプレート <strong>${newTemplates.length}件</strong> を追加します` : ''}
+          </div>
+        `;
+        detailsEl.appendChild(extraBox);
+      }
+    }
+
+    document.getElementById('mergeModal').classList.add('open');
+  }
+
+  function executeSmartMerge() {
+    if (!pendingMergePlan) return;
+    const { incomingData, toAdd, conflicts, newPresets, newTemplates } = pendingMergePlan;
+
+    let addedCount = 0;
+    let updatedCount = 0;
+    let combinedCount = 0;
+
+    // 1. 新規日付の追加
+    toAdd.forEach(({ dateStr, inc }) => {
+      state.entries[dateStr] = JSON.parse(JSON.stringify(inc));
+      addedCount++;
+    });
+
+    // 2. 競合・更新日の反映
+    conflicts.forEach((c, idx) => {
+      const checked = document.querySelector(`input[name="merge_choice_${idx}"]:checked`);
+      const mode = checked ? checked.value : c.defaultChoice;
+      if (mode === 'incoming') {
+        state.entries[c.dateStr] = JSON.parse(JSON.stringify(c.inc));
+        updatedCount++;
+      } else if (mode === 'combine') {
+        state.entries[c.dateStr] = combineTwoEntries(c.loc, c.inc, c.dateStr);
+        combinedCount++;
+      }
+    });
+
+    // 3. プリセット・テンプレート・色記憶の非破壊マージ
+    if (newPresets.length > 0) {
+      const presets = getActivePresets();
+      newPresets.forEach(p => presets.push(JSON.parse(JSON.stringify(p))));
+    }
+    if (newTemplates.length > 0) {
+      if (!Array.isArray(state.templates)) state.templates = [];
+      newTemplates.forEach(t => state.templates.push({ ...JSON.parse(JSON.stringify(t)), id: uid() }));
+    }
+    if (incomingData.colorMemory && typeof incomingData.colorMemory === 'object') {
+      state.colorMemory = { ...incomingData.colorMemory, ...(state.colorMemory || {}) };
+    }
+
+    // 最も新しい記録がある日付、または今日を表示
+    saveState();
+    syncAllEntrySignatures();
+    renderAll();
+
+    document.getElementById('mergeModal').classList.remove('open');
+    pendingMergePlan = null;
+
+    showToast(`🔄 統合完了（追加:${addedCount}日 ／ 更新:${updatedCount}日 ／ 合体:${combinedCount}日）`);
   }
 
   function seedPastSampleEntries(baseDateStr, overwrite = false) {
@@ -3097,6 +3826,35 @@
       showToast('JSONで保存しました');
     };
 
+    // スマート統合（マージ）イベント
+    const fMergeInput = document.getElementById('fileMergeInput');
+    const mergeModal = document.getElementById('mergeModal');
+    document.getElementById('btnSmartMergeJson').onclick = () => fMergeInput.click();
+    document.getElementById('btnCloseMergeModal').onclick = () => { mergeModal.classList.remove('open'); pendingMergePlan = null; };
+    document.getElementById('btnCancelMergeModal').onclick = () => { mergeModal.classList.remove('open'); pendingMergePlan = null; };
+    mergeModal.onclick = e => { if (e.target === mergeModal) { mergeModal.classList.remove('open'); pendingMergePlan = null; } };
+    document.getElementById('btnExecuteMerge').onclick = executeSmartMerge;
+
+    fMergeInput.onchange = e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const parsed = JSON.parse(ev.target.result);
+          if (parsed && parsed.entries && typeof parsed.entries === 'object') {
+            analyzeAndOpenMergeModal(parsed);
+          } else {
+            showToast('有効な日記JSONファイルではありません');
+          }
+        } catch {
+          showToast('JSONファイルの読込に失敗しました');
+        }
+      };
+      reader.readAsText(file);
+      fMergeInput.value = '';
+    };
+
     const fInput = document.getElementById('fileImportInput');
     document.getElementById('btnImportJson').onclick = () => fInput.click();
     fInput.onchange = e => {
@@ -3106,16 +3864,94 @@
       reader.onload = ev => {
         try {
           const parsed = JSON.parse(ev.target.result);
-          if (parsed && parsed.entries) { state = parsed; saveState(); renderAll(); showToast('データを復元しました'); }
+          if (parsed && parsed.entries) {
+            openConfirmModal(
+              '上書き読込の確認',
+              '現在の端末のデータをすべて消去し、選択したJSONファイルの内容で丸ごと上書きしますか？（両方のデータを残したい場合は「🔄 スマート統合」をご利用ください）',
+              '上書き復元する',
+              () => {
+                state = parsed;
+                saveState();
+                syncAllEntrySignatures();
+                renderAll();
+                showToast('データを上書き復元しました');
+              }
+            );
+          }
         } catch { showToast('読込に失敗しました'); }
       };
       reader.readAsText(file); fInput.value = '';
     };
+
+    // ストレージステータスバーのクリックで詳細を表示
+    const storageBar = document.getElementById('storageStatusBar');
+    if (storageBar) {
+      storageBar.onclick = () => {
+        const mb = (lastEstimatedBytes / (1024 * 1024)).toFixed(2);
+        let quotaMsg = '';
+        if (quotaEstimateInfo && quotaEstimateInfo.quota) {
+          const maxGb = (quotaEstimateInfo.quota / (1024 * 1024 * 1024)).toFixed(1);
+          quotaMsg = ` ／ 端末の最大利用可能枠: 約${maxGb}GB`;
+        }
+        showToast(`${isIdbActive ? '💾 大容量IndexedDBに保存中' : '💾 標準ストレージ保存中'}（使用量: ${mb}MB${quotaMsg}）`);
+      };
+    }
   }
 
-  loadState();
-  bindEvents();
-  renderAll();
+  // 起動時に IndexedDB と localStorage を統合・自動移行して初期化する
+  async function initAppStorageAndBoot() {
+    // 1. まず localStorage または初期データで即座に画面を起動
+    loadState();
+    syncAllEntrySignatures();
+    bindEvents();
+    renderAll();
+
+    // 2. ブラウザにデータの永続化保護（自動削除防止）をリクエスト
+    if (navigator.storage && navigator.storage.persist) {
+      try { await navigator.storage.persist(); } catch {}
+    }
+
+    // 3. IndexedDB から大容量データを読み込み（初回は localStorage から自動移行）
+    try {
+      const idbData = await idbGetState();
+      if (idbData && idbData.entries && typeof idbData.entries === 'object') {
+        // IndexedDB のデータをベースにしつつ、万が一 localStorage 側に新しい更新があれば合体
+        const localEntries = state.entries || {};
+        const mergedEntries = { ...idbData.entries };
+
+        Object.entries(localEntries).forEach(([dStr, locEnt]) => {
+          if (!hasMeaningfulRecord(locEnt)) return;
+          const idbEnt = mergedEntries[dStr];
+          if (!hasMeaningfulRecord(idbEnt)) {
+            mergedEntries[dStr] = locEnt;
+          } else if ((locEnt.updatedAt || 0) > (idbEnt.updatedAt || 0) && !state._isLiteBackup) {
+            mergedEntries[dStr] = locEnt;
+          }
+        });
+
+        state = {
+          ...idbData,
+          entries: mergedEntries,
+          presets: Array.isArray(idbData.presets) && idbData.presets.length ? idbData.presets : state.presets,
+          templates: Array.isArray(idbData.templates) && idbData.templates.length ? idbData.templates : state.templates,
+          colorMemory: { ...(state.colorMemory || {}), ...(idbData.colorMemory || {}) }
+        };
+        delete state._isLiteBackup;
+        await idbSetState(JSON.parse(JSON.stringify(state)));
+        syncAllEntrySignatures();
+        renderAll();
+      } else {
+        // 初回起動時：現在の localStorage データをそのまま大容量 IndexedDB へ自動移行
+        await idbSetState(JSON.parse(JSON.stringify(state)));
+      }
+      scheduleStorageMeterUpdate();
+    } catch (err) {
+      console.warn('IndexedDB初期化フォールバック:', err);
+      scheduleStorageMeterUpdate();
+    }
+  }
+
+  initAppStorageAndBoot();
 })();
 </script>
 
