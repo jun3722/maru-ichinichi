@@ -49,7 +49,8 @@
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.5;
-    padding: max(16px, env(safe-area-inset-top)) 16px max(60px, env(safe-area-inset-bottom));
+    padding: max(14px, env(safe-area-inset-top)) 14px max(80px, env(safe-area-inset-bottom));
+    overflow-x: hidden;
   }
 
   .app-header {
@@ -59,7 +60,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
   }
 
   .logo-area { display: flex; align-items: center; gap: 8px; }
@@ -79,8 +80,8 @@
   .view-btn {
     border: none;
     background: transparent;
-    padding: 5px 14px;
-    font-size: 12.5px;
+    padding: 5px 12px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--text-sub);
     cursor: pointer;
@@ -101,9 +102,9 @@
     border: 1px solid var(--border-color);
     background: var(--panel-bg);
     color: var(--text-main);
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: 999px;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 750;
     cursor: pointer;
     display: inline-flex;
@@ -118,7 +119,7 @@
     border: none;
     background: var(--primary-blue);
     color: #fff;
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: 999px;
     font-size: 12px;
     font-weight: 750;
@@ -130,39 +131,53 @@
   }
   .pwa-install-btn.ready { display: inline-flex; }
 
+  /* メインレイアウト：スマホ・タブレットでは1カラム縦並び（sticky解除）、PCでは2カラム横並び */
   .app-container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 460px 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
     align-items: start;
   }
-  .app-container.scroll-mode-active { grid-template-columns: 1fr; max-width: 960px; }
-  @media (max-width: 960px) { .app-container { grid-template-columns: 1fr; } }
 
   .left-column {
-    position: sticky;
-    top: 16px;
+    position: static;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    min-width: 0;
   }
-  .app-container.scroll-mode-active .left-column,
-  @media (max-width: 960px) { .left-column { position: static; } }
 
   .preview-card {
     background-color: var(--card-bg);
     color: var(--card-text);
     border-radius: 20px;
-    padding: 24px;
+    padding: 20px;
     box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
     transition: background-color 0.2s, color 0.2s;
-    max-height: 85vh;
-    overflow-y: auto;
     overflow-x: hidden;
     touch-action: pan-y;
     user-select: none;
+  }
+
+  @media (min-width: 961px) {
+    .app-container:not(.scroll-mode-active) {
+      grid-template-columns: 450px 1fr;
+    }
+    .app-container:not(.scroll-mode-active) .left-column {
+      position: sticky;
+      top: 16px;
+    }
+    .app-container:not(.scroll-mode-active) .preview-card {
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+  }
+
+  .app-container.scroll-mode-active {
+    grid-template-columns: 1fr;
+    max-width: 960px;
   }
 
   .swipe-viewport { position: relative; overflow: hidden; width: 100%; touch-action: pan-y; }
@@ -189,7 +204,7 @@
   }
   .card-nav-btn:hover, .calendar-nav-btn:hover { opacity: 0.85; }
 
-  .card-header { text-align: center; margin-bottom: 16px; }
+  .card-header { text-align: center; margin-bottom: 14px; }
   .card-date-badge { display: inline-block; font-size: 11px; font-weight: 700; color: var(--card-sub); letter-spacing: 0.05em; margin-bottom: 2px; }
   .card-title { font-size: 18px; font-weight: 800; line-height: 1.3; }
   .card-subtitle { font-size: 12px; color: var(--card-sub); margin-top: 2px; }
@@ -325,7 +340,7 @@
 
   .legend-section { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--card-border); }
   .legend-header-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; font-size: 10.5px; color: var(--card-sub); font-weight: 700; }
-  .legend-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 6px; font-size: 12px; }
+  .legend-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; row-gap: 6px; font-size: 12px; }
   .legend-item { display: flex; align-items: center; justify-content: space-between; gap: 6px; overflow: hidden; }
   .legend-left { display: flex; align-items: center; gap: 6px; min-width: 0; }
   .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
@@ -338,7 +353,7 @@
   .card-memo-text { font-size: 12.5px; line-height: 1.5; white-space: pre-wrap; word-break: break-all; }
   .card-footer { text-align: center; margin-top: 12px; font-size: 10px; color: var(--card-sub); opacity: 0.6; }
 
-  .action-area { margin-top: 4px; display: flex; flex-direction: column; gap: 8px; }
+  .action-area { margin-top: 2px; display: flex; flex-direction: column; gap: 8px; }
   .action-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
   .btn {
@@ -357,7 +372,15 @@
   .theme-btn { border: none; background: transparent; color: var(--text-sub); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px; cursor: pointer; }
   .theme-btn.active { background: var(--panel-bg); color: var(--text-main); }
 
-  .editor-panel { background: var(--panel-bg); border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); }
+  .editor-panel {
+    position: relative;
+    z-index: 1;
+    background: var(--panel-bg);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    min-width: 0;
+  }
   .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
   .section-title { font-size: 14px; font-weight: 800; }
 
@@ -384,7 +407,7 @@
   .otd-empty-state { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-sub); font-size: 11px; padding: 12px 4px; gap: 6px; }
 
   .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  @media (max-width: 600px) { .form-grid-2 { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .form-grid-2 { grid-template-columns: 1fr; } }
   .form-group { margin-bottom: 10px; }
   .form-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-sub); margin-bottom: 3px; }
   .form-input, .form-textarea {
@@ -397,11 +420,11 @@
   .summary-stats { font-size: 12px; color: var(--text-sub); }
   .summary-stats strong { color: var(--text-main); font-weight: 700; }
 
-  .schedule-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; max-height: 420px; overflow-y: auto; padding-right: 4px; }
+  .schedule-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; max-height: 440px; overflow-y: auto; padding-right: 4px; }
   .schedule-card { background: var(--item-bg); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 6px; border: 1px solid transparent; }
   .schedule-card.highlight-flash { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22); }
   .schedule-top { display: flex; align-items: center; gap: 8px; }
-  .schedule-title-input { flex: 1; padding: 5px 8px; border: 1px solid var(--border-color); border-radius: 6px; background: #fff; font-size: 13px; color: var(--text-main); outline: none; }
+  .schedule-title-input { flex: 1; min-width: 0; padding: 5px 8px; border: 1px solid var(--border-color); border-radius: 6px; background: #fff; font-size: 13px; color: var(--text-main); outline: none; }
   .btn-remove { border: none; background: transparent; color: var(--text-sub); font-size: 16px; line-height: 1; padding: 2px 6px; cursor: pointer; border-radius: 4px; }
   .btn-remove:hover { color: var(--danger); background: rgba(239, 68, 68, 0.08); }
   .schedule-bottom { display: flex; align-items: center; gap: 6px; padding-left: 28px; flex-wrap: wrap; }
@@ -409,7 +432,7 @@
   .duration-badge { margin-left: auto; font-size: 11px; color: var(--text-sub); }
   .overlap-warning { padding-left: 28px; font-size: 10.5px; color: var(--danger); font-weight: 600; display: none; }
 
-  .presets-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; gap: 8px; }
+  .presets-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; gap: 8px; flex-wrap: wrap; }
   .presets-area { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
   .preset-chip {
     display: inline-flex; align-items: center; gap: 4px; padding: 5px 11px; border-radius: 999px;
@@ -496,7 +519,7 @@
   .card-photo-img { width: 100%; max-height: 160px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; border: 1px solid var(--card-border); cursor: zoom-in; }
 
   .schedule-extra-row { display: flex; align-items: flex-start; gap: 6px; padding-left: 28px; margin-top: 2px; }
-  .schedule-note-input { flex: 1; padding: 5px 8px; border: 1px solid var(--border-color); border-radius: 6px; background: #fff; font-size: 12px; color: var(--text-main); font-family: inherit; }
+  .schedule-note-input { flex: 1; min-width: 0; padding: 5px 8px; border: 1px solid var(--border-color); border-radius: 6px; background: #fff; font-size: 12px; color: var(--text-main); font-family: inherit; }
   .schedule-photo-btn { padding: 4px 8px; border: 1px solid var(--border-color); border-radius: 6px; background: #fff; font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap; }
   .schedule-photo-preview { position: relative; width: 38px; height: 38px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color); flex-shrink: 0; }
   .schedule-photo-preview img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
@@ -749,7 +772,7 @@
             <span id="moodCurrentLabel">😊 気分を選択…</span>
             <span class="picker-caret">▼</span>
           </button>
-          <input type="text" id="inputMoodText" class="form-input" style="flex:1; min-width:170px; background:#fff; padding:6px 10px; font-size:12px;" placeholder="または自由入力（例：良いことがあった！）">
+          <input type="text" id="inputMoodText" class="form-input" style="flex:1; min-width:150px; background:#fff; padding:6px 10px; font-size:12px;" placeholder="または自由入力（例：良いことがあった！）">
         </div>
         <div id="moodPickerPanel" class="collapsible-chip-panel">
           <div id="moodChipGroup" class="chip-group"></div>
@@ -996,7 +1019,6 @@
     return res;
   }
 
-  // 同じ項目名の予定を合算（合計時間・回数）してまとめる
   function aggregateLegendItems(items) {
     const map = new Map();
     const sorted = [...(items || [])].sort((a, b) => timeToMin(a.start) - timeToMin(b.start));
@@ -1422,7 +1444,7 @@
 
     document.getElementById('dayPreviewCard').style.display = state.activeView === 'day' ? 'block' : 'none';
     document.getElementById('weekPreviewCard').style.display = state.activeView === 'week' ? 'flex' : 'none';
-    document.getElementById('monthPreviewCard').style.display = state.activeView === 'month' ? 'flex' : 'none';
+    document.getElementById('monthPreviewCard').style.display = state.activeView === 'month' ? 'block' : 'none';
     document.getElementById('timelineScrollView').style.display = isScroll ? 'flex' : 'none';
 
     const saveBtn = document.getElementById('btnSavePng');
@@ -3100,7 +3122,6 @@
 <!-- ▼ PWA用：アプリアイコン自動生成・Webマニフェスト登録・Service Worker制御 ▼ -->
 <script>
 (() => {
-  // 1. Canvasで『まるいちにち』の24時間長方形バーアイコン（512x512）を自動描画
   function createAppIconDataUrl(size = 512) {
     const canvas = document.createElement('canvas');
     canvas.width = size;
@@ -3108,26 +3129,23 @@
     const ctx = canvas.getContext('2d');
     const r = size / 512;
 
-    // 背景（角丸ダークネイビー）
     ctx.fillStyle = '#0f172a';
     ctx.beginPath();
     ctx.roundRect(0, 0, size, size, 112 * r);
     ctx.fill();
 
-    // 中央の24時間長方形バーの枠
     const bx = 176 * r, by = 64 * r, bw = 160 * r, bh = 384 * r;
     ctx.fillStyle = '#1e293b';
     ctx.beginPath();
     ctx.roundRect(bx, by, bw, bh, 24 * r);
     ctx.fill();
 
-    // カラフルな時間ブロックを描画
     const blocks = [
-      { start: 0,  end: 7,  color: '#8294e8' }, // 睡眠
-      { start: 7,  end: 9,  color: '#f5c942' }, // 朝食・準備
-      { start: 9,  end: 17, color: '#4fa3ea' }, // 仕事・活動
-      { start: 17, end: 21, color: '#f07481' }, // 趣味・自由時間
-      { start: 21, end: 24, color: '#4bc0be' }  // リラックス・睡眠
+      { start: 0,  end: 7,  color: '#8294e8' },
+      { start: 7,  end: 9,  color: '#f5c942' },
+      { start: 9,  end: 17, color: '#4fa3ea' },
+      { start: 17, end: 21, color: '#f07481' },
+      { start: 21, end: 24, color: '#4bc0be' }
     ];
 
     ctx.save();
@@ -3149,14 +3167,12 @@
   const icon512 = createAppIconDataUrl(512);
   const icon192 = createAppIconDataUrl(192);
 
-  // ヘッダー横のミニロゴにも自動設定
   const headerLogo = document.getElementById('headerLogoIcon');
   if (headerLogo) {
     headerLogo.src = icon192;
     headerLogo.style.display = 'block';
   }
 
-  // 2. iPhone用アイコン（apple-touch-icon）およびファビコンとして<head>に設定
   const appleIcon = document.createElement('link');
   appleIcon.rel = 'apple-touch-icon';
   appleIcon.href = icon192;
@@ -3168,7 +3184,6 @@
   favIcon.href = icon192;
   document.head.appendChild(favIcon);
 
-  // 3. Webマニフェスト（manifest.json相当）を動的生成して登録
   const startUrl = (window.location.origin && window.location.origin !== 'null')
     ? window.location.origin + window.location.pathname
     : './index.html';
@@ -3193,14 +3208,12 @@
   manifestLink.href = `data:application/manifest+json;charset=utf-8,${manifestJson}`;
   document.head.appendChild(manifestLink);
 
-  // 4. オフライン制御（Service Worker）の登録（同階層にsw.jsがある場合も自動認識）
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js').catch(() => {});
     });
   }
 
-  // 5. ブラウザがPWAインストール可能と判定した際にヘッダーに「📲 アプリとしてインストール」ボタンを表示
   let deferredPrompt = null;
   const installBtn = document.getElementById('btnPwaInstall');
   window.addEventListener('beforeinstallprompt', (e) => {
